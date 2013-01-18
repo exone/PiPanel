@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="4000">
+	<defaultcontrol always="true">400</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<backgroundcolor>Background</backgroundcolor>
+	<visible>Control.HasFocus(300)</visible>
+	<controls>
+
+		<control type="image" id="66">
+			<description>RPi logo</description>
+			<posx>1100</posx>
+			<posy>493</posy>
+			<width>148</width>
+			<height>195</height>
+			<visible>true</visible>
+			<texture>rpi.png</texture>
+			<aspectratio>keep</aspectratio>
+			<onclick>301</onclick>
+			<colordiffuse>Text</colordiffuse>
+		</control>
+		
+		<control type="label" id="301">
+			<label>$INFO[System.Time(hh:mm)]</label>
+					<posx>900</posx>
+					<posy>64</posy>
+					<height>0</height>
+					<width>0</width>
+					<font>clock</font>
+					<textcolor>Text</textcolor>
+					<align>right</align>
+		</control>
+		
+		<control type="label" id="400">
+			<label>Hello World</label>
+			<onclick>ActivateWindow(Programs,Addons)</onclick>
+			
+		</control>
+	</controls>
+
+</window>

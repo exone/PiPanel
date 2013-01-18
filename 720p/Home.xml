@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="0">
+	<defaultcontrol always="true">501</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	
+	<controls>
+
+		<include>GlobalBackground</include>
+		<include>RPiLogo</include>
+
+		<control type="label">
+		<label>Home</label>
+		<visible allowhiddenfocus="true">Control.HasFocus(502)</visible>
+		</control>
+		
+		<control id="501">
+		<type>button</type>
+					<label></label>
+					<posx>20</posx>
+					<posy>288</posy>
+					<height>40</height>
+					<width>40</width>
+					<font>Home_menu</font>
+					<align>left</align>
+					<onup>501</onup>
+					<ondown>502</ondown>
+					<onleft></onleft>
+					<onright>701</onright>
+					<onclick>ActivateWindow(VideoLibrary,Movies,return)</onclick>
+		</control>
+		<control id="502">
+		<type>button</type>
+					<label></label>
+					<posx>20</posx>
+					<posy>288</posy>
+					<height>40</height>
+					<width>40</width>
+					<font>Home_menu</font>
+					<align>left</align>
+					<onup>502</onup>
+					<ondown>501</ondown>
+					<onleft></onleft>
+					<onright>701</onright>
+					<onclick>ActivateWindow(VideoLibrary,Movies,return)</onclick>
+		</control>
+		
+		<control type="label" id="301">
+			<label>$INFO[System.Time(hh:mm)]</label>
+					<posx>900</posx>
+					<posy>64</posy>
+					<height>0</height>
+					<width>0</width>
+					<font>clock</font>
+					<textcolor>Text</textcolor>
+					<align>right</align>
+		</control>
+
+		<control type="list" id="300">
+			<description>Home list</description>
+			<posx>32</posx>
+			<posy>32</posy>
+			<width>1280</width>
+			<height>720</height>
+			<onup>300</onup>
+			<ondown>300</ondown>
+			<onleft>300</onleft>
+			<onright>66</onright>
+			<scrolltime>200</scrolltime>
+			<visible>false</visible>
+			
+			
+
+			<itemlayout width="360" height="48">
+
+				<control type="label">
+					<posx>0</posx>
+					<height>48</height>
+					<width>350</width>
+					<font>items</font>
+					<info>ListItem.Label</info>
+					<align>left</align>
+					<textcolor>Text</textcolor>
+				</control>
+
+			</itemlayout>
+
+			<focusedlayout width="540" height="48">
+
+				<control type="image" id="67">
+					<posx>0</posx>
+					<posy>24</posy>
+					<width>8</width>
+					<height>8</height>
+					<texture>gui/sep.jpg</texture>
+					<colordiffuse>TextHighlight</colordiffuse>
+				</control>
+			
+				<control type="label">
+					<posx>32</posx>
+					<width>540</width>
+					<height>48</height>
+					<info>ListItem.Label</info>
+					<font>items</font>
+					<textcolor>TextHighlight</textcolor>
+					<align>left</align>
+				</control>
+
+			</focusedlayout>
+
+			<content>
+
+				<item id="1">
+					<description>Home</description>
+					<label>Home</label>
+					<onclick>XBMC.ActivateWindow(4000)</onclick>
+				</item>
+				<item id="6">
+					<description>TV Shows</description>
+					<label>31007</label>
+					<onclick>ActivateWindow(Video,tvshowtitles)</onclick>
+					<visible>Library.HasContent(TVShows)</visible>
+				</item>
+			
+				<item id="1">
+					<description>Programs</description>
+					<label>31002</label>
+					<onclick>ActivateWindow(Programs,Addons)</onclick>
+					<visible>false</visible>
+				</item>
+
+				<item id="2">
+					<description>Videos</description>
+					<label>31003</label>
+					<onclick>ActivateWindow(Video,Files)</onclick>
+					<visible>false</visible>
+				</item>
+
+				<item id="3">
+					<description>Music</description>
+					<label>31004</label>
+					<onclick>ActivateWindow(Music)</onclick>
+					<visible>Library.HasContent(Music)</visible>
+				</item>
+
+				<item id="4">
+					<description>Pictures</description>
+					<label>31005</label>
+					<onclick>ActivateWindow(Pictures)</onclick>
+					<visible>Library.HasContent(Pictures)</visible>
+				</item>
+
+				<item id="5">
+					<description>Movies</description>
+					<label>31006</label>
+					<onclick>ActivateWindow(Video,movietitles)</onclick>
+					<visible>Library.HasContent(TVShows)</visible>
+				</item>
+
+
+				<item id="8">
+					<description>Profiles</description>
+					<label>31009</label>
+					<onclick>ActivateWindow(Profiles)</onclick>
+					<visible>false</visible>
+				</item>
+
+				<item id="9">
+					<description>Weather</description>
+					<label>31010</label>
+					<onclick>ActivateWindow(weather)</onclick>
+					<visible>false</visible>
+				</item>
+
+				<item id="10">
+					<description>File manager</description>
+					<label>31011</label>
+					<onclick>ActivateWindow(filemanager)</onclick>
+					<visible>false</visible>
+				</item>
+
+				<item id="13">
+					<description>Play Disc</description>
+					<label>31014</label>
+					<onclick>PlayDVD</onclick>
+					<visible>System.HasMediadvd</visible>
+				</item>
+				
+				<item id="5">
+					<description>Start TwitchTV addon</description>
+					<label>TwitchTV</label>
+					<onclick>RunAddon(plugin.video.twitch)</onclick>
+				</item>
+
+				<item id="5">
+					<description>Start YouTube addon</description>
+					<label>YouTube</label>
+					<onclick>RunAddon(plugin.video.youtube)</onclick>
+				</item>
+				
+				<item id="7">
+					<description>Favourites</description>
+					<label>31008</label>
+					<onclick>ActivateWindow(Favourites)</onclick>
+				</item>
+				
+				<item id="11">
+					<description>Settings</description>
+					<label>31012</label>
+					<onclick>ActivateWindow(settings)</onclick>
+				</item>
+				
+				<item id="12">
+					<description>Shutdown</description>
+					<label>31013</label>
+					<onclick>ActivateWindow(shutdownmenu)</onclick>
+				</item>
+
+			</content>
+
+		</control>
+
+		<control type="rss">
+			<description>RSS Feed</description>
+			<posx>0</posx>
+			<posy>700</posy>
+			<width>1280</width>
+			<height>14</height>
+			<font>rss</font>
+			<urlset>1</urlset>
+			<titlecolor>Text</titlecolor>
+			<headlinecolor>Text</headlinecolor>
+			<textcolor>Text</textcolor>
+			<scrollspeed>10</scrollspeed>
+		</control>
+
+	</controls>
+
+</window>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<fonts>
+	<fontset id="default" unicode="true">
+
+		<font>
+			<name>items-highlight</name>
+			<filename>OpenSans-Semibold.ttf</filename>
+			<size>32</size>
+		</font>
+		
+		<font>
+			<name>items</name>
+			<filename>OpenSans-light.ttf</filename>
+			<size>48</size>
+		</font>
+		
+		<font>
+			<name>titles</name>
+			<filename>OpenSans-light.ttf</filename>
+			<size>32</size>
+		</font>
+		<font>
+			<name>titles-highlight</name>
+			<filename>OpenSans-light.ttf</filename>
+			<size>32</size>
+		</font>
+
+		<font>
+			<name>rss</name>
+			<filename>OpenSans-light.ttf</filename>
+			<size>12</size>
+		</font>
+		
+		<font>
+			<name>clock</name>
+			<filename>OpenSans-light.ttf</filename>
+			<size>148</size>
+		</font>
+		
+		<font>
+			<name>Large</name>
+			<filename>Arial.ttf</filename>
+			<size>48</size>
+		</font>
+		
+		<font>
+			<name>Medium</name>
+			<filename>Arial.ttf</filename>
+			<size>39</size>
+		</font>
+		
+		<font>
+			<name>Small</name>
+			<filename>Arial.ttf</filename>
+			<size>30</size>
+		</font>
+
+		<!-- Required for system -->
+		<font>
+			<name>font13</name>
+			<filename>Arial.ttf</filename>
+			<size>30</size>
+		</font>
+
+	</fontset>
+</fonts>

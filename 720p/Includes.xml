@@ -7,20 +7,44 @@
 	<include file="View_50_List.xml" />
 	
 
-		<include name="RPiLogo">
+	<include name="RPiLogo">
 
 		<control type="image" id="66">
-			<description>RPi logo</description>
+			<description>RPi logo top</description>
 			<posx>1100</posx>
 			<posy>493</posy>
 			<width>148</width>
 			<height>195</height>
-			<texture>rpi.png</texture>
+			<texture>rpi1.png</texture>
 			<aspectratio>keep</aspectratio>
 			<onclick>301</onclick>
-			<colordiffuse>Text</colordiffuse>
+			<colordiffuse>rpitop</colordiffuse>
+		</control>
+		<control type="image" id="66">
+			<description>RPi logo bottom</description>
+			<posx>1100</posx>
+			<posy>493</posy>
+			<width>148</width>
+			<height>195</height>
+			<texture>rpi2.png</texture>
+			<aspectratio>keep</aspectratio>
+			<onclick>301</onclick>
+			<colordiffuse>rpibottom</colordiffuse>
 		</control>
 
+	</include>
+	
+	<include name="Clock">
+			<control type="label" id="301">
+			<label>$INFO[System.Time(hh:mm)]</label>
+					<posx>1238</posx>
+					<posy>32</posy>
+					<height>100</height>
+					<width>400</width>
+					<font>clock</font>
+					<textcolor>TextHighlight</textcolor>
+					<align>right</align>
+		</control>
 	</include>
 	
 	<include name="HiddenButton">
@@ -86,7 +110,6 @@
 	</include>
 
 	<include name="GlobalBackground">
-		
 		<control type="group">
 			<visible>!Player.HasMedia | [Player.HasAudio + Skin.HasSetting(NoBackgroundVisualiser)] | [Player.HasVideo + Skin.HasSetting(NoBackgroundVideo)]</visible>
 			
@@ -113,6 +136,7 @@
 				<colordiffuse>FanartDiffuse</colordiffuse>
 				<visible>!IsEmpty(ListItem.foldername) + [Container.Content(Seasons) | [Container.Content(Episodes) + !stringcompare(Container.FolderPath,videodb://5/)]]</visible>
 			</control>
+
 
 		</control>
 

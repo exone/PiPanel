@@ -11,13 +11,13 @@
 			<posy>32</posy>
 			<width>1280</width>
 			<height>640</height>
-			<onleft>ActivateWindow(Home)</onleft>
 			<onright>60</onright>
 			<onup>50</onup>
 			<ondown>50</ondown>
 			<pagecontrol>60</pagecontrol>
 			<viewtype label="535">list</viewtype>
 			<scrolltime>0</scrolltime>
+			
 			
 
 			<itemlayout width="1280" height="58">
@@ -29,6 +29,14 @@
 					<font>items</font>
 					<textcolor>Text</textcolor>
 					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<width>1280</width>
+					<font>items</font>
+					<textcolor>Text</textcolor>
+					<label>--------------------------------------------------------------------------</label>
+					<visible>!$INFO[Window(Home).Property(RecommendedMovie.%d.Watched)]</visible>
 				</control>
 
 			</itemlayout>
@@ -56,8 +64,8 @@
 		</control>
 
 		<control type="image">
-			<posx>928</posx>
-			<posy>132</posy>
+			<posx>0</posx>
+			<posy>0</posy>
 			<width>320</width>
 			<height>440</height>
 			<fadetime>100</fadetime>
@@ -66,6 +74,7 @@
 			<bordertexture border="5">gui/sep.jpg</bordertexture>
 			<bordersize>2</bordersize>
 			<visible>!IsEmpty(ListItem.Icon)</visible>
+			<visible>false</visible>
 		</control>
 
 		<control type="fadelabel">

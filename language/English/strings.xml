@@ -7,8 +7,8 @@
   <string id="31003">Videos</string>
   <string id="31004">Music</string>
   <string id="31005">Pictures</string>
-  <string id="31006">Movies $INFO[Window(Home).Property(Movies.UnWatched)]</string>
-  <string id="31007">TV Shows $INFO[Window(Home).Property(Episodes.UnWatched)]</string>
+  <string id="31006">Movies</string>
+  <string id="31007">TV Shows</string>
   <string id="31008">Favourites</string>
   <string id="31009">Profiles</string>
   <string id="31010">Weather</string>

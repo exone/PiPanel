@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window id="4000">
+<window type="menu" id="4000">
 	<defaultcontrol always="true">400</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-	<backgroundcolor>Background</backgroundcolor>
+	<backgroundcolor>0</backgroundcolor>
 	<visible>Control.HasFocus(300)</visible>
 	<controls>
 
@@ -20,7 +20,7 @@
 		</control>
 		
 		<control type="label" id="301">
-			<label>$INFO[System.Time(hh:mm)]</label>
+			<label>Home</label>
 					<posx>900</posx>
 					<posy>64</posy>
 					<height>0</height>
@@ -33,6 +33,7 @@
 		<control type="label" id="400">
 			<label>Hello World</label>
 			<onclick>ActivateWindow(Programs,Addons)</onclick>
+			<onleft>ActivateWindow(Home)</onleft>
 			
 		</control>
 	</controls>

@@ -1,78 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window id="0">
-	<defaultcontrol always="true">501</defaultcontrol>
+	<defaultcontrol always="true">300</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
+	<backgroundcolor>Background</backgroundcolor>
 	
 	<controls>
 
 		<include>GlobalBackground</include>
 		<include>RPiLogo</include>
+		<include>Clock</include>
+		
+		
+		<control type="grouplist" id="400">
+		<posx>320</posx>
+		<posy>32</posy>
+		<visible>Container(300).HasFocus(1)</visible>
+		
+		
+			<control type="label">
+				<description>Unwatched episodes</description>
+				<label>$INFO[Window(Home).Property(Episodes.UnWatched)] Unwatched episodes</label>
+				<textcolor>TextHighlight</textcolor>
+				<font>Items</font>
+			</control>
+			<control type="label">
+				<description>Unwatched movies</description>
+				<label>$INFO[Window(Home).Property(Movies.UnWatched)] Unwatched movies</label>
+				<textcolor>TextHighlight</textcolor>
+				<font>Items</font>
+			</control>
+			<control type="label">
+				<description>Spacer</description>
+				<label></label>
+			</control>
 
-		<control type="label">
-		<label>Home</label>
-		<visible allowhiddenfocus="true">Control.HasFocus(502)</visible>
-		</control>
-		
-		<control id="501">
-		<type>button</type>
-					<label></label>
-					<posx>20</posx>
-					<posy>288</posy>
-					<height>40</height>
-					<width>40</width>
-					<font>Home_menu</font>
-					<align>left</align>
-					<onup>501</onup>
-					<ondown>502</ondown>
-					<onleft></onleft>
-					<onright>701</onright>
-					<onclick>ActivateWindow(VideoLibrary,Movies,return)</onclick>
-		</control>
-		<control id="502">
-		<type>button</type>
-					<label></label>
-					<posx>20</posx>
-					<posy>288</posy>
-					<height>40</height>
-					<width>40</width>
-					<font>Home_menu</font>
-					<align>left</align>
-					<onup>502</onup>
-					<ondown>501</ondown>
-					<onleft></onleft>
-					<onright>701</onright>
-					<onclick>ActivateWindow(VideoLibrary,Movies,return)</onclick>
-		</control>
-		
-		<control type="label" id="301">
-			<label>$INFO[System.Time(hh:mm)]</label>
-					<posx>900</posx>
-					<posy>64</posy>
-					<height>0</height>
-					<width>0</width>
-					<font>clock</font>
-					<textcolor>Text</textcolor>
-					<align>right</align>
+			<control type="label" id="23">
+				<description>Free RAM megabyte</description>
+				<width>800</width>
+				<label>$INFO[system.freememory] Free RAM</label>
+				<textcolor>TextHighlight</textcolor>
+				<font>Items</font>
+			</control>
+			<control type="label" id="23">
+				<description>CPU temp</description>
+				<width>800</width>
+				<label>$INFO[System.CPUTemperature]</label>
+				<textcolor>TextHighlight</textcolor>
+				<font>Items</font>
+			</control>
+			
+			
 		</control>
 
-		<control type="list" id="300">
-			<description>Home list</description>
-			<posx>32</posx>
+		<control type="list" id="400">
+			<description>Submenu</description>
+			<posx>330</posx>
 			<posy>32</posy>
 			<width>1280</width>
 			<height>720</height>
-			<onup>300</onup>
-			<ondown>300</ondown>
+			<onup>400</onup>
+			<ondown>400</ondown>
 			<onleft>300</onleft>
-			<onright>66</onright>
-			<scrolltime>200</scrolltime>
-			<visible>false</visible>
+			<onright>400</onright>
+			<focusposition>0</focusposition>
+			<visible allowhiddenfocus="true">Control.HasFocus(400)</visible>
 			
 			
-
 			<itemlayout width="360" height="48">
-
 				<control type="label">
 					<posx>0</posx>
 					<height>48</height>
@@ -82,11 +77,96 @@
 					<align>left</align>
 					<textcolor>Text</textcolor>
 				</control>
-
 			</itemlayout>
 
 			<focusedlayout width="540" height="48">
+				<control type="label">
+					<posx>24</posx>
+					<width>540</width>
+					<height>48</height>
+					<info>ListItem.Label</info>
+					<font>items</font>
+					<textcolor>TextHighlight</textcolor>
+					<align>left</align>
+				</control>
+					<control type="image" id="68">
+					<posx>0</posx>
+					<posy>24</posy>
+					<width>8</width>
+					<height>8</height>
+					<texture>gui/sep.jpg</texture>
+					<colordiffuse>TextHighlight</colordiffuse>
+				</control>
+			</focusedlayout>
 
+			<content>
+				<item id="0">
+					<description>Watching</description>
+					<label>Watching</label>
+					<onclick>ActivateWindow(10025,&quot;library://video/inprogressshows.xml/&quot;)</onclick>
+					<visible>Container(300).HasFocus(2)</visible>
+				</item>
+				<item id="1">
+					<description>Recently added episodes</description>
+					<label>Recent</label>
+					<onclick>ActivateWindow(VideoVideos,RecentlyAddedEpisodes,return)</onclick>
+					<visible>Container(300).HasFocus(2)</visible>
+				</item>
+				<item id="2">
+					<description>Recent movies</description>
+					<label>Recent</label>
+					<onclick>ActivateWindow(Videos,RecentlyAddedMovies,return)</onclick>
+					<visible>Container(300).HasFocus(3)</visible>
+				</item>
+				<item id="3">
+					<description>Update library</description>
+					<label>Update library</label>
+					<onclick>UpdateLibrary(video)</onclick>
+					<visible>Container(300).HasFocus(11)</visible>
+				</item>
+				<item id="4">
+					<description>Clean library</description>
+					<label>Clean library</label>
+					<onclick>CleanLibrary(video)</onclick>
+					<visible>Container(300).HasFocus(11)</visible>
+				</item>
+				
+				<item id="4">
+					<description>youtube new subvideos</description>
+					<label>New</label>
+					<onclick>CleanLibrary(video)</onclick>
+					<visible>Container(300).HasFocus(5)</visible>
+				</item>
+		</content>
+	</control>
+	
+		<control type="list" id="300">
+			<description>Main menu</description>
+			<posx>32</posx>
+			<posy>32</posy>
+			<width>1280</width>
+			<height>720</height>
+			<onup>300</onup>
+			<ondown>300</ondown>
+			<onleft>300</onleft>
+			<onright>SetFocus(400)</onright>
+			<scrolltime>200</scrolltime>
+			<animation effect="slide" start="-320,0" time="200">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="-320,0" time="200">WindowClose</animation>
+
+			<itemlayout width="360" height="48">
+				<control type="label">
+					<posx>0</posx>
+					<height>48</height>
+					<width min="128" max="320">auto</width>
+					<font>items</font>
+					<info>ListItem.Label</info>
+					<align>left</align>
+					<textcolor>Text</textcolor>
+				</control>
+			</itemlayout>
+
+			<focusedlayout width="540" height="48">
 				<control type="image" id="67">
 					<posx>0</posx>
 					<posy>24</posy>
@@ -113,50 +193,55 @@
 				<item id="1">
 					<description>Home</description>
 					<label>Home</label>
-					<onclick>XBMC.ActivateWindow(4000)</onclick>
+					<onclick>XBMC.ActivateWindow(Home)</onclick>
+					<visible>false</visible>
+					
 				</item>
-				<item id="6">
+				<item id="2">
 					<description>TV Shows</description>
-					<label>31007</label>
+					<label>TV Shows</label>
 					<onclick>ActivateWindow(Video,tvshowtitles)</onclick>
 					<visible>Library.HasContent(TVShows)</visible>
+					
 				</item>
-			
-				<item id="1">
+				<item id="3">
 					<description>Programs</description>
 					<label>31002</label>
 					<onclick>ActivateWindow(Programs,Addons)</onclick>
+					<visible>Skin.HasSetting(programshortcut)</visible>
+				</item>
+				<item id ="4">
+					<label>Toggle</label>
+					<onclick>Skin.ToggleSetting(programshortcut)</onclick>
 					<visible>false</visible>
 				</item>
-
-				<item id="2">
+				<item id="5">
 					<description>Videos</description>
 					<label>31003</label>
 					<onclick>ActivateWindow(Video,Files)</onclick>
 					<visible>false</visible>
 				</item>
 
-				<item id="3">
+				<item id="5">
 					<description>Music</description>
 					<label>31004</label>
 					<onclick>ActivateWindow(Music)</onclick>
 					<visible>Library.HasContent(Music)</visible>
 				</item>
 
-				<item id="4">
+				<item id="6">
 					<description>Pictures</description>
 					<label>31005</label>
 					<onclick>ActivateWindow(Pictures)</onclick>
 					<visible>Library.HasContent(Pictures)</visible>
 				</item>
 
-				<item id="5">
+				<item id="3">
 					<description>Movies</description>
 					<label>31006</label>
 					<onclick>ActivateWindow(Video,movietitles)</onclick>
 					<visible>Library.HasContent(TVShows)</visible>
 				</item>
-
 
 				<item id="8">
 					<description>Profiles</description>

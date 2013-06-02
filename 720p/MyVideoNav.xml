@@ -4,6 +4,7 @@
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
 	<views>50</views>
+	<backgroundcolor>Background</backgroundcolor>
 	
 
 	<controls>
@@ -16,17 +17,9 @@
 		
 
 		<include>View_50_List</include>
-		
-		<control type="label" id="301">
-			<label>$INFO[System.Time(hh:mm)]</label>
-					<posx>900</posx>
-					<posy>64</posy>
-					<height>0</height>
-					<width>0</width>
-					<font>clock</font>
-					<align>right</align>
-					<textcolor>Text</textcolor>
-		</control>
+
+		<include>Clock</include>
+
 		
 		<control type="grouplist" id="9000">
 			<posx>10</posx>
